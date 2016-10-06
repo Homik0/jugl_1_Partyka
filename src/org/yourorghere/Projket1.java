@@ -48,6 +48,7 @@ public class Projket1 implements GLEventListener {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
         animator.start();
+        
     }
 
     public void init(GLAutoDrawable drawable) {
@@ -81,7 +82,29 @@ public class Projket1 implements GLEventListener {
         gl.glMatrixMode(GL.GL_MODELVIEW);
         gl.glLoadIdentity();
     }
-
+//    public void kolo(GLAutoDrawable drawable, float a,float b, float c ){
+//        GL gl = drawable.getGL();
+//        float x,y,kat;
+//        gl.glBegin(GL.GL_TRIANGLE_FAN);
+//        gl.glColor3f(1.0f, 1.0f, 1.0f);
+//        gl.glVertex3f(c,1.0f,-6.0f); //œrodek
+//        for(kat = 0.0f; kat < (2.0f*Math.PI);
+//            kat+=(Math.PI/32.0f))
+//            {
+//        x = a*(float)Math.sin(kat);
+//        y = b*(float)Math.cos(kat);
+//        gl.glVertex3f(x-(-c), y, -6.0f); //kolejne punkty
+//    }
+//gl.glEnd();
+//    }
+    public void trojkat(GLAutoDrawable drawable ,float a, float b, float c,float x,float y, float z,float j,float k,float l){
+        GL gl = drawable.getGL();
+        gl.glBegin(GL.GL_TRIANGLES);
+            gl.glVertex3f(a, b,c);
+            gl.glVertex3f(x,y,z);
+            gl.glVertex3f(j,k,l);
+            gl.glEnd();
+    }
     public void display(GLAutoDrawable drawable) {
         GL gl = drawable.getGL();
 
@@ -92,54 +115,8 @@ public class Projket1 implements GLEventListener {
 
         // Move the "drawing cursor" around
         gl.glTranslatef(-1.5f, 0.0f, -6.0f);
-
-       gl.glBegin(GL.GL_QUADS);
-            gl.glColor3f(0.0f,1.0f,3.0f);
-            gl.glVertex3f(0.0f, 3.0f, -6.0f);
-            gl.glVertex3f(0.0f,-3.0f, -6.0f);
-            gl.glVertex3f( 5.0f,-3.0f, -6.0f);
-            gl.glVertex3f( 5.0f,3.0f, -6.0f);
-            gl.glEnd();
-       gl.glBegin(GL.GL_QUADS);
-            gl.glColor3f(9.0f,1.0f,0.0f);
-            gl.glVertex3f(1.0f, 0.0f, -6.0f);
-            gl.glVertex3f(1.0f,1.0f, -6.0f);
-            gl.glVertex3f( 2.0f,1.0f, -6.0f);
-            gl.glVertex3f( 2.0f,0.0f, -6.0f);
-            gl.glEnd();
-       gl.glBegin(GL.GL_QUADS);
-            gl.glColor3f(9.0f,1.0f,0.0f);
-            gl.glVertex3f(3.0f, 0.0f, -6.0f);
-            gl.glVertex3f(3.0f,1.0f, -6.0f);
-            gl.glVertex3f( 4.0f,1.0f, -6.0f);
-            gl.glVertex3f( 4.0f,0.0f, -6.0f);
-            gl.glEnd();
-            
-       gl.glBegin(GL.GL_QUADS);
-            gl.glColor3f(6.0f,1.0f,6.0f);
-            gl.glVertex3f(1.0f, -2.0f, -6.0f);
-            gl.glVertex3f(1.0f,-3.0f, -6.0f);
-            gl.glVertex3f( 2.0f,-3.0f, -6.0f);
-            gl.glVertex3f( 2.0f,-2.0f, -6.0f);
-            gl.glEnd();
-       gl.glBegin(GL.GL_TRIANGLES);
-            gl.glColor3f(0.0f,1.0f,0.0f);
-            gl.glVertex3f(2.5f, 5.0f, -6.0f);
-            gl.glVertex3f(-1.0f,3.0f, -6.0f);
-            gl.glVertex3f( 6.0f,3.0f, -6.0f);
-            gl.glEnd();
-            float x,y,kat;
-gl.glBegin(GL.GL_TRIANGLE_FAN);
-gl.glColor3f(1.0f, 1.0f, 1.0f);
-gl.glVertex3f(-4.0f,1.0f,-6.0f); //œrodek
-for(kat = 0.0f; kat < (2.0f*Math.PI);
-kat+=(Math.PI/32.0f))
-{
-x = -3.5f*(float)Math.sin(kat);
-y = -3.5f*(float)Math.cos(kat);
-gl.glVertex3f(x-4, y, -6.0f); //kolejne punkty
-}
-gl.glEnd();
+      
+    
         // Flush all drawing operations to the graphics card
         gl.glFlush();
     }
