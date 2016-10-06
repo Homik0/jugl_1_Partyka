@@ -93,18 +93,40 @@ public class Projket1 implements GLEventListener {
         // Move the "drawing cursor" around
         gl.glTranslatef(-1.5f, 0.0f, -6.0f);
 
-        gl.glBegin(GL.GL_TRIANGLES);
-            gl.glColor3f(8.0f,1.0f,0.0f);
-            gl.glVertex3f(-1.0f, 1.0f, -6.0f);
-            gl.glVertex3f(-2.0f,-1.0f, -6.0f);
-            gl.glVertex3f( 0.0f,-1.0f, -6.0f);
-            gl.glEnd();
        gl.glBegin(GL.GL_QUADS);
             gl.glColor3f(0.0f,1.0f,8.0f);
-            gl.glVertex3f(2.0f, 3.0f, -2.0f);
-            gl.glVertex3f(2.0f,-3.0f, -2.0f);
-            gl.glVertex3f( 5.0f,-3.0f, -2.0f);
-            gl.glVertex3f( 5.0f,3.0f, -2.0f);
+            gl.glVertex3f(0.0f, 3.0f, -6.0f);
+            gl.glVertex3f(0.0f,-3.0f, -6.0f);
+            gl.glVertex3f( 5.0f,-3.0f, -6.0f);
+            gl.glVertex3f( 5.0f,3.0f, -6.0f);
+            gl.glEnd();
+       gl.glBegin(GL.GL_QUADS);
+            gl.glColor3f(9.0f,1.0f,0.0f);
+            gl.glVertex3f(1.0f, 0.0f, -6.0f);
+            gl.glVertex3f(1.0f,1.0f, -6.0f);
+            gl.glVertex3f( 2.0f,1.0f, -6.0f);
+            gl.glVertex3f( 2.0f,0.0f, -6.0f);
+            gl.glEnd();
+       gl.glBegin(GL.GL_QUADS);
+            gl.glColor3f(9.0f,1.0f,0.0f);
+            gl.glVertex3f(3.0f, 0.0f, -6.0f);
+            gl.glVertex3f(3.0f,1.0f, -6.0f);
+            gl.glVertex3f( 4.0f,1.0f, -6.0f);
+            gl.glVertex3f( 4.0f,0.0f, -6.0f);
+            gl.glEnd();
+            
+       gl.glBegin(GL.GL_QUADS);
+            gl.glColor3f(6.0f,1.0f,6.0f);
+            gl.glVertex3f(1.0f, -2.0f, -6.0f);
+            gl.glVertex3f(1.0f,-3.0f, -6.0f);
+            gl.glVertex3f( 2.0f,-3.0f, -6.0f);
+            gl.glVertex3f( 2.0f,-2.0f, -6.0f);
+            gl.glEnd();
+       gl.glBegin(GL.GL_TRIANGLES);
+            gl.glColor3f(0.0f,1.0f,0.0f);
+            gl.glVertex3f(2.5f, 5.0f, -6.0f);
+            gl.glVertex3f(-1.0f,3.0f, -6.0f);
+            gl.glVertex3f( 6.0f,3.0f, -6.0f);
             gl.glEnd();
         // Flush all drawing operations to the graphics card
         gl.glFlush();
