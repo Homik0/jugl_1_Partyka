@@ -94,7 +94,7 @@ public class Projket1 implements GLEventListener {
         gl.glTranslatef(-1.5f, 0.0f, -6.0f);
 
        gl.glBegin(GL.GL_QUADS);
-            gl.glColor3f(0.0f,1.0f,8.0f);
+            gl.glColor3f(0.0f,1.0f,3.0f);
             gl.glVertex3f(0.0f, 3.0f, -6.0f);
             gl.glVertex3f(0.0f,-3.0f, -6.0f);
             gl.glVertex3f( 5.0f,-3.0f, -6.0f);
@@ -128,6 +128,18 @@ public class Projket1 implements GLEventListener {
             gl.glVertex3f(-1.0f,3.0f, -6.0f);
             gl.glVertex3f( 6.0f,3.0f, -6.0f);
             gl.glEnd();
+            float x,y,kat;
+gl.glBegin(GL.GL_TRIANGLE_FAN);
+gl.glColor3f(1.0f, 1.0f, 1.0f);
+gl.glVertex3f(-4.0f,1.0f,-6.0f); //œrodek
+for(kat = 0.0f; kat < (2.0f*Math.PI);
+kat+=(Math.PI/32.0f))
+{
+x = -3.5f*(float)Math.sin(kat);
+y = -3.5f*(float)Math.cos(kat);
+gl.glVertex3f(x-4, y, -6.0f); //kolejne punkty
+}
+gl.glEnd();
         // Flush all drawing operations to the graphics card
         gl.glFlush();
     }
