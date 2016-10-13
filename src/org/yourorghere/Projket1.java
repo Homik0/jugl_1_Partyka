@@ -126,41 +126,64 @@ public class Projket1 implements GLEventListener {
         gl.glTranslatef(0.0f, 0.0f, -6.0f); //przesuniêcie o 6 jednostek
         gl.glRotatef(xrot, 1.0f, 0.0f, 0.0f); //rotacja wokó³ osi X
         gl.glRotatef(yrot, 0.0f, 1.0f, 0.0f); //rotacja wokó³ osi Y
+//        float x,y,kat;
+//        gl.glBegin(GL.GL_TRIANGLE_FAN);
+//        gl.glColor3f(1.0f, 1.0f, 0.0f);
+//        gl.glVertex3f(0.0f,0.0f,1.0f); //œrodek
+//        for(kat = (float) (2.0f*Math.PI); kat >= 0.0f;kat-=(Math.PI/32.0f))
+//        {
+//            x = 1.5f*(float)Math.sin(kat);
+//            y = 1.5f*(float)Math.cos(kat);
+//            gl.glVertex3f(x, y, 1.0f); //kolejne punkty
+//        }
+//        gl.glEnd();
+//        
+//        float c,v,kat2;
+//        gl.glBegin(GL.GL_TRIANGLE_FAN);
+//        gl.glColor3f(1.0f, 1.0f, 0.0f);
+//        gl.glVertex3f(0.0f,0.0f,-1.0f); //œrodek
+//        for(kat2 = 0.0f; kat2 < (2.0f*Math.PI);kat2+=(Math.PI/32.0f))
+//        {
+//            c = 1.5f*(float)Math.sin(kat2);
+//            v = 1.5f*(float)Math.cos(kat2);
+//            gl.glVertex3f(c, v, -1.0f); //kolejne punkty
+//        }
+//        gl.glEnd();
+//        
+//        float b,n,kat3;
+//        gl.glBegin(GL.GL_QUAD_STRIP);
+//        gl.glColor3f(1.0f, 0.0f, 0.0f);
+//        for(kat3 = 0.0f; kat3 < (2.0f*Math.PI);kat3+=(Math.PI/32.0f))
+//        {
+//            b = 1.5f*(float)Math.sin(kat3);
+//            n = 1.5f*(float)Math.cos(kat3);
+//            gl.glVertex3f(b, n, -1.0f); //kolejne punkty
+//            gl.glVertex3f(b, n, 1.0f); //kolejne punkty
+//        }
+//        gl.glEnd();
         float x,y,kat;
         gl.glBegin(GL.GL_TRIANGLE_FAN);
         gl.glColor3f(1.0f, 1.0f, 0.0f);
-        gl.glVertex3f(0.0f,0.0f,1.0f); //œrodek
+        gl.glVertex3f(0.0f,2.0f,0.0f); //œrodek
         for(kat = (float) (2.0f*Math.PI); kat >= 0.0f;kat-=(Math.PI/32.0f))
         {
             x = 1.5f*(float)Math.sin(kat);
             y = 1.5f*(float)Math.cos(kat);
-            gl.glVertex3f(x, y, 1.0f); //kolejne punkty
+            gl.glVertex3f(x, 1.0f, y); //kolejne punkty
         }
         gl.glEnd();
-        
-        float c,v,kat2;
+        float x1,y1,kat1;
         gl.glBegin(GL.GL_TRIANGLE_FAN);
-        gl.glColor3f(1.0f, 1.0f, 0.0f);
-        gl.glVertex3f(0.0f,0.0f,-1.0f); //œrodek
-        for(kat2 = 0.0f; kat2 < (2.0f*Math.PI);kat2+=(Math.PI/32.0f))
+        gl.glColor3f(0.0f, 1.0f, 0.0f);
+        gl.glVertex3f(0.0f,1.0f,0.0f); //œrodek
+        for(kat1 = 0.0f; kat1 <(2.0f*Math.PI);kat1+=(Math.PI/32.0f))
         {
-            c = 1.5f*(float)Math.sin(kat2);
-            v = 1.5f*(float)Math.cos(kat2);
-            gl.glVertex3f(c, v, -1.0f); //kolejne punkty
+            x1= 1.5f*(float)Math.sin(kat1);
+            y1 = 1.5f*(float)Math.cos(kat1);
+            gl.glVertex3f(x1, 1.0f, y1); //kolejne punkty
         }
         gl.glEnd();
         
-        float b,n,kat3;
-        gl.glBegin(GL.GL_QUAD_STRIP);
-        gl.glColor3f(1.0f, 0.0f, 0.0f);
-        for(kat3 = 0.0f; kat3 < (2.0f*Math.PI);kat3+=(Math.PI/32.0f))
-        {
-            b = 1.5f*(float)Math.sin(kat3);
-            n = 1.5f*(float)Math.cos(kat3);
-            gl.glVertex3f(b, n, -1.0f); //kolejne punkty
-            gl.glVertex3f(b, n, 1.0f); //kolejne punkty
-        }
-        gl.glEnd();
         
 
 //        gl.glBegin(GL.GL_QUADS);
