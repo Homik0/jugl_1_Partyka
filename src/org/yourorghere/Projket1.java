@@ -126,73 +126,72 @@ public class Projket1 implements GLEventListener {
         gl.glTranslatef(0.0f, 0.0f, -6.0f); //przesuniêcie o 6 jednostek
         gl.glRotatef(xrot, 1.0f, 0.0f, 0.0f); //rotacja wokó³ osi X
         gl.glRotatef(yrot, 0.0f, 1.0f, 0.0f); //rotacja wokó³ osi Y
-        gl.glBegin(GL.GL_QUADS);
-        gl.glColor3f(1.0f, 0.0f, 0.0f);
-        gl.glVertex3f(-1.0f,-1.0f,1.0f);
-        gl.glVertex3f(1.0f,-1.0f,1.0f);
-        gl.glVertex3f(1.0f,-1.0f,-1.0f);
-        gl.glVertex3f(-1.0f,-1.0f,-1.0f);
-        gl.glEnd();
-        gl.glBegin(GL.GL_TRIANGLES);
-        //sciana przednia
+        float x,y,kat;
+        gl.glBegin(GL.GL_TRIANGLE_FAN);
         gl.glColor3f(1.0f, 1.0f, 0.0f);
-        gl.glVertex3f(1.0f,-1.0f,1.0f);
-        gl.glVertex3f(-1.0f,-1.0f,1.0f);
-        gl.glVertex3f(0.0f,1.0f,0.0f);
-        //sciana prawa
-        gl.glColor3f(1.0f, 1.0f, 1.0f);
-        gl.glVertex3f(1.0f,-1.0f,-1.0f);
-        gl.glVertex3f(1.0f,-1.0f,1.0f);
-        gl.glVertex3f(0.0f,1.0f,0.0f);
-        //sciana lewa
-        gl.glColor3f(0.0f, 1.0f, 1.0f);
-        gl.glVertex3f(-1.0f,-1.0f,1.0f);
-        gl.glVertex3f(-1.0f,-1.0f,-1.0f);
-        gl.glVertex3f(0.0f,1.0f,0.0f);
-        //sciana tylnia
-        gl.glColor3f(1.0f, 0.0f, 1.0f);
-        gl.glVertex3f(-1.0f,-1.0f,-1.0f);
-        gl.glVertex3f(1.0f,-1.0f,-1.0f);
-        gl.glVertex3f(0.0f,1.0f,0.0f);
+        gl.glVertex3f(0.0f,0.0f,1.0f); //œrodek
+        for(kat = (float) (2.0f*Math.PI); kat >= 0.0f;kat-=(Math.PI/32.0f))
+        {
+            x = 1.5f*(float)Math.sin(kat);
+            y = 1.5f*(float)Math.cos(kat);
+            gl.glVertex3f(x, y, 1.0f); //kolejne punkty
+        }
         gl.glEnd();
-//gl.glBegin(GL.GL_QUADS);
-////œciana przednia
-//gl.glColor3f(1.0f,0.0f,0.0f);
-//gl.glVertex3f(-1.0f,-1.0f,1.0f);
-//gl.glVertex3f(1.0f,-1.0f,1.0f);
-//gl.glVertex3f(1.0f,1.0f,1.0f);
-//gl.glVertex3f(-1.0f,1.0f,1.0f);
-////sciana tylnia
-//gl.glColor3f(0.0f,1.0f,0.0f);
-//gl.glVertex3f(-1.0f,1.0f,-1.0f);
-//gl.glVertex3f(1.0f,1.0f,-1.0f);
-//gl.glVertex3f(1.0f,-1.0f,-1.0f);
-//gl.glVertex3f(-1.0f,-1.0f,-1.0f);
-////œciana lewa
-//gl.glColor3f(0.0f,0.0f,1.0f);
-//gl.glVertex3f(-1.0f,-1.0f,-1.0f);
-//gl.glVertex3f(-1.0f,-1.0f,1.0f);
-//gl.glVertex3f(-1.0f,1.0f,1.0f);
-//gl.glVertex3f(-1.0f,1.0f,-1.0f);
-////œciana prawa
-//gl.glColor3f(1.0f,1.0f,0.0f);
-//gl.glVertex3f(1.0f,1.0f,-1.0f);
-//gl.glVertex3f(1.0f,1.0f,1.0f);
-//gl.glVertex3f(1.0f,-1.0f,1.0f);
-//gl.glVertex3f(1.0f,-1.0f,-1.0f);
-////œciana dolna
-//gl.glColor3f(1.0f,0.0f,1.0f);
-//gl.glVertex3f(-1.0f,-1.0f,1.0f);
-//gl.glVertex3f(-1.0f,-1.0f,-1.0f);
-//gl.glVertex3f(1.0f,-1.0f,-1.0f);
-//gl.glVertex3f(1.0f,-1.0f,1.0f);
-////sciana gorna
-//gl.glColor3f(1.0f,0.0f,1.0f);
-//gl.glVertex3f(-1.0f,1.0f,1.0f);
-//gl.glVertex3f(1.0f,1.0f,1.0f);
-//gl.glVertex3f(1.0f,1.0f,-1.0f);
-//gl.glVertex3f(-1.0f,1.0f,-1.0f);
-//gl.glEnd();
+        
+        float c,v,kat2;
+        gl.glBegin(GL.GL_TRIANGLE_FAN);
+        gl.glColor3f(1.0f, 1.0f, 0.0f);
+        gl.glVertex3f(0.0f,0.0f,-1.0f); //œrodek
+        for(kat2 = 0.0f; kat2 < (2.0f*Math.PI);kat2+=(Math.PI/32.0f))
+        {
+            c = 1.5f*(float)Math.sin(kat2);
+            v = 1.5f*(float)Math.cos(kat2);
+            gl.glVertex3f(c, v, -1.0f); //kolejne punkty
+        }
+        gl.glEnd();
+        
+        float b,n,kat3;
+        gl.glBegin(GL.GL_QUAD_STRIP);
+        gl.glColor3f(1.0f, 0.0f, 0.0f);
+        for(kat3 = 0.0f; kat3 < (2.0f*Math.PI);kat3+=(Math.PI/32.0f))
+        {
+            b = 1.5f*(float)Math.sin(kat3);
+            n = 1.5f*(float)Math.cos(kat3);
+            gl.glVertex3f(b, n, -1.0f); //kolejne punkty
+            gl.glVertex3f(b, n, 1.0f); //kolejne punkty
+        }
+        gl.glEnd();
+        
+
+//        gl.glBegin(GL.GL_QUADS);
+//        gl.glColor3f(1.0f, 0.0f, 0.0f);
+//        gl.glVertex3f(-1.0f,-1.0f,1.0f);
+//        gl.glVertex3f(1.0f,-1.0f,1.0f);
+//        gl.glVertex3f(1.0f,-1.0f,-1.0f);
+//        gl.glVertex3f(-1.0f,-1.0f,-1.0f);
+//        gl.glEnd();
+//        gl.glBegin(GL.GL_TRIANGLES);
+//        //sciana przednia
+//        gl.glColor3f(1.0f, 1.0f, 0.0f);
+//        gl.glVertex3f(1.0f,-1.0f,1.0f);
+//        gl.glVertex3f(-1.0f,-1.0f,1.0f);
+//        gl.glVertex3f(0.0f,1.0f,0.0f);
+//        //sciana prawa
+//        gl.glColor3f(1.0f, 1.0f, 1.0f);
+//        gl.glVertex3f(1.0f,-1.0f,-1.0f);
+//        gl.glVertex3f(1.0f,-1.0f,1.0f);
+//        gl.glVertex3f(0.0f,1.0f,0.0f);
+//        //sciana lewa
+//        gl.glColor3f(0.0f, 1.0f, 1.0f);
+//        gl.glVertex3f(-1.0f,-1.0f,1.0f);
+//        gl.glVertex3f(-1.0f,-1.0f,-1.0f);
+//        gl.glVertex3f(0.0f,1.0f,0.0f);
+//        //sciana tylnia
+//        gl.glColor3f(1.0f, 0.0f, 1.0f);
+//        gl.glVertex3f(-1.0f,-1.0f,-1.0f);
+//        gl.glVertex3f(1.0f,-1.0f,-1.0f);
+//        gl.glVertex3f(0.0f,1.0f,0.0f);
+//        gl.glEnd();
         
         // Flush all drawing operations to the graphics card
         gl.glFlush();
