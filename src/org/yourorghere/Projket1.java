@@ -2,6 +2,8 @@ package org.yourorghere;
 
 import com.sun.opengl.util.Animator;
 import java.awt.Frame;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.media.opengl.GL;
@@ -19,7 +21,10 @@ import javax.media.opengl.glu.GLU;
  * This version is equal to Brian Paul's version 1.2 1999/10/21
  */
 public class Projket1 implements GLEventListener {
-
+    
+    //statyczne pola okreœlaj¹ce rotacjê wokó³ osi X i Y
+ 
+    private static float xrot = 0.0f, yrot = 0.0f;
     public static void main(String[] args) {
         Frame frame = new Frame("Simple JOGL Application");
         GLCanvas canvas = new GLCanvas();
@@ -44,6 +49,24 @@ public class Projket1 implements GLEventListener {
                 }).start();
             }
         });
+        //Obs³uga klawiszy strza³ek
+        frame.addKeyListener(new KeyListener()
+        {
+            public void keyPressed(KeyEvent e)
+            {
+                if(e.getKeyCode() == KeyEvent.VK_UP)
+                xrot -= 1.0f;
+                if(e.getKeyCode() == KeyEvent.VK_DOWN)
+                xrot +=1.0f;
+                if(e.getKeyCode() == KeyEvent.VK_RIGHT)
+                yrot += 1.0f;
+                if(e.getKeyCode() == KeyEvent.VK_LEFT)
+                yrot -=1.0f;
+            }
+            public void keyReleased(KeyEvent e){}
+            public void keyTyped(KeyEvent e){}
+        });
+
         // Center frame
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
@@ -60,7 +83,8 @@ public class Projket1 implements GLEventListener {
 
         // Enable VSync
         gl.setSwapInterval(1);
-
+        //wy³¹czenie wewnêtrzych stron prymitywów
+        gl.glEnable(GL.GL_CULL_FACE);
         // Setup the drawing area and shading mode
         gl.glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
         gl.glShadeModel(GL.GL_SMOOTH); // try setting this to GL_FLAT and see what happens.
@@ -82,21 +106,6 @@ public class Projket1 implements GLEventListener {
         gl.glMatrixMode(GL.GL_MODELVIEW);
         gl.glLoadIdentity();
     }
-//    public void kolo(GLAutoDrawable drawable, float a,float b, float c ){
-//        GL gl = drawable.getGL();
-//        float x,y,kat;
-//        gl.glBegin(GL.GL_TRIANGLE_FAN);
-//        gl.glColor3f(1.0f, 1.0f, 1.0f);
-//        gl.glVertex3f(c,1.0f,-6.0f); //œrodek
-//        for(kat = 0.0f; kat < (2.0f*Math.PI);
-//            kat+=(Math.PI/32.0f))
-//            {
-//        x = a*(float)Math.sin(kat);
-//        y = b*(float)Math.cos(kat);
-//        gl.glVertex3f(x-(-c), y, -6.0f); //kolejne punkty
-//    }
-//gl.glEnd();
-//    }
     public void trojkat(GLAutoDrawable drawable ,float a, float b, float c,float x,float y, float z,float j,float k,float l){
         GL gl = drawable.getGL();
         gl.glBegin(GL.GL_TRIANGLES);
@@ -114,9 +123,49 @@ public class Projket1 implements GLEventListener {
         gl.glLoadIdentity();
 
         // Move the "drawing cursor" around
-        gl.glTranslatef(-1.5f, 0.0f, -6.0f);
+        gl.glTranslatef(0.0f, 0.0f, -6.0f); //przesuniêcie o 6 jednostek
+        gl.glRotatef(xrot, 1.0f, 0.0f, 0.0f); //rotacja wokó³ osi X
+        gl.glRotatef(yrot, 0.0f, 1.0f, 0.0f); //rotacja wokó³ osi Y
       
-    
+        gl.glBegin(GL.GL_QUADS);
+//œciana przednia
+gl.glColor3f(1.0f,0.0f,0.0f);
+gl.glVertex3f(-1.0f,-1.0f,1.0f);
+gl.glVertex3f(1.0f,-1.0f,1.0f);
+gl.glVertex3f(1.0f,1.0f,1.0f);
+gl.glVertex3f(-1.0f,1.0f,1.0f);
+//sciana tylnia
+gl.glColor3f(0.0f,1.0f,0.0f);
+gl.glVertex3f(-1.0f,1.0f,-1.0f);
+gl.glVertex3f(1.0f,1.0f,-1.0f);
+gl.glVertex3f(1.0f,-1.0f,-1.0f);
+gl.glVertex3f(-1.0f,-1.0f,-1.0f);
+//œciana lewa
+gl.glColor3f(0.0f,0.0f,1.0f);
+gl.glVertex3f(-1.0f,-1.0f,-1.0f);
+gl.glVertex3f(-1.0f,-1.0f,1.0f);
+gl.glVertex3f(-1.0f,1.0f,1.0f);
+gl.glVertex3f(-1.0f,1.0f,-1.0f);
+//œciana prawa
+gl.glColor3f(1.0f,1.0f,0.0f);
+gl.glVertex3f(1.0f,1.0f,-1.0f);
+gl.glVertex3f(1.0f,1.0f,1.0f);
+gl.glVertex3f(1.0f,-1.0f,1.0f);
+gl.glVertex3f(1.0f,-1.0f,-1.0f);
+//œciana dolna
+gl.glColor3f(1.0f,0.0f,1.0f);
+gl.glVertex3f(-1.0f,-1.0f,1.0f);
+gl.glVertex3f(-1.0f,-1.0f,-1.0f);
+gl.glVertex3f(1.0f,-1.0f,-1.0f);
+gl.glVertex3f(1.0f,-1.0f,1.0f);
+//sciana gorna
+gl.glColor3f(1.0f,0.0f,1.0f);
+gl.glVertex3f(-1.0f,1.0f,1.0f);
+gl.glVertex3f(1.0f,1.0f,1.0f);
+gl.glVertex3f(1.0f,1.0f,-1.0f);
+gl.glVertex3f(-1.0f,1.0f,-1.0f);
+gl.glEnd();
+
         // Flush all drawing operations to the graphics card
         gl.glFlush();
     }
