@@ -29,6 +29,10 @@ public class Projket1 implements GLEventListener {
     public static float diffuseLight[] = { 0.7f, 0.7f, 0.7f, 1.0f };//?wiat³o rozproszone
     public static float specular[] = { 1.0f, 1.0f, 1.0f, 1.0f}; //?wiat³o odbite
     public static float lightPos[] = { 0.0f, 5.0f, 5.0f, 1.0f };//pozycja ?wiat³a
+    public static float ambientLight1[] = { 0.3f, 0.3f, 0.3f, 1.0f };//swiat³o otaczajšce
+    public static float diffuseLight1[] = { 0.7f, 0.7f, 0.7f, 1.0f };//?wiat³o rozproszone
+    public static float specular1[] = { 1.0f, 1.0f, 1.0f, 1.0f}; //?wiat³o odbite
+    public static float lightPos1[] = { 0.0f, 5.0f, 5.0f, 1.0f };//pozycja ?wiat³a
     public static void main(String[] args) {
         Frame frame = new Frame("Simple JOGL Application");
         GLCanvas canvas = new GLCanvas();
@@ -79,9 +83,9 @@ public class Projket1 implements GLEventListener {
                 if(e.getKeyChar()=='x')
                     specular = new float[]{specular[0]+0.1f,specular[1]+0.1f,specular[2]+0.1f,specular[3]};
                 if(e.getKeyChar()=='k')
-                    lightPos = new float[]{lightPos[0]-0.1f,lightPos[1]-0.1f,lightPos[2]-0.1f,lightPos[3]};
+                    lightPos = new float[]{lightPos[0]-0.2f,lightPos[1]-0.2f,lightPos[2]-0.2f,lightPos[3]};
                 if(e.getKeyChar()=='l')
-                    lightPos = new float[]{lightPos[0]+0.1f,lightPos[1]+0.1f,lightPos[2]+0.1f,lightPos[3]};
+                    lightPos = new float[]{lightPos[0]+0.2f,lightPos[1]+0.2f,lightPos[2]+0.2f,lightPos[3]};
             }
             public void keyReleased(KeyEvent e){}
             public void keyTyped(KeyEvent e){}
@@ -113,6 +117,11 @@ public class Projket1 implements GLEventListener {
         gl.glLightfv(GL.GL_LIGHT0,GL.GL_SPECULAR,specular,0); //?wiat³o odbite
         gl.glLightfv(GL.GL_LIGHT0,GL.GL_POSITION,lightPos,0); //pozycja ?wiat³a
         gl.glEnable(GL.GL_LIGHT0); //uaktywnienie ?ród³a ?wiat³a nr. 0
+        gl.glLightfv(GL.GL_LIGHT1,GL.GL_AMBIENT,ambientLight1,0); //swiat³o otaczajšce
+        gl.glLightfv(GL.GL_LIGHT1,GL.GL_DIFFUSE,diffuseLight1,0); //?wiat³o rozproszone
+        gl.glLightfv(GL.GL_LIGHT1,GL.GL_SPECULAR,specular1,0); //?wiat³o odbite
+        gl.glLightfv(GL.GL_LIGHT1,GL.GL_POSITION,lightPos1,0);
+        gl.glEnable(GL.GL_LIGHT1);
         gl.glEnable(GL.GL_COLOR_MATERIAL); //uaktywnienie ?ledzenia kolorów
         //kolory bêdš ustalane za pomocš glColor
         gl.glColorMaterial(GL.GL_FRONT, GL.GL_AMBIENT_AND_DIFFUSE);
@@ -140,9 +149,10 @@ public class Projket1 implements GLEventListener {
         gl.glViewport(0, 0, width, height);
         gl.glMatrixMode(GL.GL_PROJECTION);
         gl.glLoadIdentity();
-        glu.gluPerspective(45.0f, h, 1.0, 20.0);
+        glu.gluPerspective(100.0f, h, 2.0, 30.0);
         gl.glMatrixMode(GL.GL_MODELVIEW);
         gl.glLoadIdentity();
+        
     }
     void walec(GL gl)
  {
@@ -247,6 +257,11 @@ void drzewo(GL gl){
         gl.glLightfv(GL.GL_LIGHT0,GL.GL_SPECULAR,specular,0); //swiatlo odbite
         gl.glLightfv(GL.GL_LIGHT0,GL.GL_POSITION,lightPos,0); //pozycja ?wiat³a
         gl.glEnable(GL.GL_LIGHT0);
+        gl.glLightfv(GL.GL_LIGHT1,GL.GL_AMBIENT,ambientLight1,0); //swiat³o otaczajšce
+        gl.glLightfv(GL.GL_LIGHT1,GL.GL_DIFFUSE,diffuseLight1,0); //?wiat³o rozproszone
+        gl.glLightfv(GL.GL_LIGHT1,GL.GL_SPECULAR,specular1,0); //swiatlo odbite
+        gl.glLightfv(GL.GL_LIGHT1,GL.GL_POSITION,lightPos1,0); //pozycja ?wiat³a
+        gl.glEnable(GL.GL_LIGHT1);
         gl.glEnable(GL.GL_COLOR_MATERIAL);
         for(int i=1;i<=5;i++){
             gl.glPushMatrix();
