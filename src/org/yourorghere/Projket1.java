@@ -24,15 +24,19 @@ public class Projket1 implements GLEventListener {
     
     //statyczne pola okreœlaj¹ce rotacjê wokó³ osi X i Y
     static Koparka koparka;
+    
     private static float xrot = 0.0f, yrot = 0.0f;
+    
     public static float ambientLight[] = { 0.3f, 0.3f, 0.3f, 1.0f };//swiat³o otaczajšce
     public static float diffuseLight[] = { 0.7f, 0.7f, 0.7f, 1.0f };//?wiat³o rozproszone
     public static float specular[] = { 1.0f, 1.0f, 1.0f, 1.0f}; //?wiat³o odbite
     public static float lightPos[] = { 0.0f, 5.0f, 5.0f, 1.0f };//pozycja ?wiat³a
+    
     public static float ambientLight1[] = { 0.3f, 0.3f, 0.3f, 1.0f };//swiat³o otaczajšce
     public static float diffuseLight1[] = { 0.7f, 0.7f, 0.7f, 1.0f };//?wiat³o rozproszone
     public static float specular1[] = { 1.0f, 1.0f, 1.0f, 1.0f}; //?wiat³o odbite
     public static float lightPos1[] = { 0.0f, 5.0f, 5.0f, 1.0f };//pozycja ?wiat³a
+    
     public static void main(String[] args) {
         Frame frame = new Frame("Simple JOGL Application");
         GLCanvas canvas = new GLCanvas();
