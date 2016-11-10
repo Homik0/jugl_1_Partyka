@@ -23,7 +23,7 @@ import javax.media.opengl.glu.GLU;
 public class Projket1 implements GLEventListener {
     
     //statyczne pola okreœlaj¹ce rotacjê wokó³ osi X i Y
- 
+    static Koparka koparka;
     private static float xrot = 0.0f, yrot = 0.0f;
     public static float ambientLight[] = { 0.3f, 0.3f, 0.3f, 1.0f };//swiat³o otaczajšce
     public static float diffuseLight[] = { 0.7f, 0.7f, 0.7f, 1.0f };//?wiat³o rozproszone
@@ -36,7 +36,7 @@ public class Projket1 implements GLEventListener {
     public static void main(String[] args) {
         Frame frame = new Frame("Simple JOGL Application");
         GLCanvas canvas = new GLCanvas();
-
+        
         canvas.addGLEventListener(new Projket1());
         frame.add(canvas);
         frame.setSize(1024, 768);
@@ -104,7 +104,7 @@ public class Projket1 implements GLEventListener {
 
         GL gl = drawable.getGL();
         System.err.println("INIT GL IS: " + gl.getClass().getName());
-
+        koparka = new Koparka();
         // Enable VSync
         gl.setSwapInterval(1);
         //warto?ci sk³adowe o?wietlenia i koordynaty ?ród³a ?wiat³a
@@ -149,7 +149,7 @@ public class Projket1 implements GLEventListener {
         gl.glViewport(0, 0, width, height);
         gl.glMatrixMode(GL.GL_PROJECTION);
         gl.glLoadIdentity();
-        glu.gluPerspective(100.0f, h, 2.0, 30.0);
+        glu.gluPerspective(100.0f, h, 1.0, 40.0);
         gl.glMatrixMode(GL.GL_MODELVIEW);
         gl.glLoadIdentity();
         
@@ -238,6 +238,7 @@ void drzewo(GL gl){
         gl.glPopMatrix();
 }
 
+
     public void display(GLAutoDrawable drawable) {
         GL gl = drawable.getGL();
 
@@ -263,15 +264,16 @@ void drzewo(GL gl){
         gl.glLightfv(GL.GL_LIGHT1,GL.GL_POSITION,lightPos1,0); //pozycja ?wiat³a
         gl.glEnable(GL.GL_LIGHT1);
         gl.glEnable(GL.GL_COLOR_MATERIAL);
-        for(int i=1;i<=5;i++){
-            gl.glPushMatrix();
-            for(int j=1;j<=5;j++){
-                drzewo(gl);
-                gl.glTranslatef(0.0f, 1.5f, 0.0f);
-            }
-            gl.glPopMatrix();
-            gl.glTranslatef(1.5f, 0.0f, 0.0f);
-        }
+        koparka.Rysuj(gl);
+//        for(int i=1;i<=5;i++){
+//            gl.glPushMatrix();
+//            for(int j=1;j<=5;j++){
+//                drzewo(gl);
+//                gl.glTranslatef(0.0f, 1.5f, 0.0f);
+//            }
+//            gl.glPopMatrix();
+//            gl.glTranslatef(1.5f, 0.0f, 0.0f);
+//        }
        // Walec
 //        float x,y,kat;
 //        gl.glBegin(GL.GL_TRIANGLE_FAN);
