@@ -12,6 +12,10 @@ import javax.media.opengl.*;
  * @author student
  */
 public class Koparka {
+    public float katr=45.0f;
+    public float katrb=0.0f;
+    public float katr2=-45.0f;
+    public float katl=-45.0f;
     public void Rysuj(GL gl)
  {
  //ciagnik
@@ -31,17 +35,22 @@ Prostopadloscian(gl,1.4f,0.5f,0.9f,0.1f,1.0f,0.1f);
 Prostopadloscian(gl,-0.5f,1.5f,-1.0f,2.0f,0.1f,2.0f);
 //ramie 1
 gl.glTranslatef(1.5f,0.0f,0.0f);
-gl.glRotatef(45.0f,0.0f,0.0f,1.0f);
+if(katrb<=90.0f){
+        gl.glRotatef(katrb,0.0f,1.0f,0.0f);
+}else katrb=katrb-1.0f;
+gl.glRotatef(katr,0.0f,0.0f,1.0f);
 Prostopadloscian(gl,0.0f,0.0f,0.0f,3.0f,0.3f,0.3f);
 //ramie 2
 gl.glTranslatef(2.7f,0.0f,0.0f);
-gl.glRotatef(-45.0f,0.0f,0.0f,1.0f);
+gl.glRotatef(katr2,0.0f,0.0f,1.0f);
 Prostopadloscian(gl,0.0f,0.0f,0.0f,1.5f,0.3f,0.3f);
 //lyzka
 gl.glTranslatef(1.2f,0.1f,0.0f);
-gl.glRotatef(-45.0f,0.0f,0.0f,1.0f);
+gl.glRotatef(katl,0.0f,0.0f,1.0f);
 Lyzka(gl);
- } 
+ }
+    
+
  private void Prostopadloscian(GL gl, float x0, float y0, float z0,
  float dx, float dy, float dz)
  {
