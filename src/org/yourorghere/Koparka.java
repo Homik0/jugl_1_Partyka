@@ -35,18 +35,37 @@ Prostopadloscian(gl,1.4f,0.5f,0.9f,0.1f,1.0f,0.1f);
 Prostopadloscian(gl,-0.5f,1.5f,-1.0f,2.0f,0.1f,2.0f);
 //ramie 1
 gl.glTranslatef(1.5f,0.0f,0.0f);
-if(katrb<=90.0f){
+if(katrb<70.0f&&katrb>-70.0f)
         gl.glRotatef(katrb,0.0f,1.0f,0.0f);
-}else katrb=katrb-1.0f;
-gl.glRotatef(katr,0.0f,0.0f,1.0f);
+else if(katrb==-70.0f)
+    katrb=katrb+1.0f;
+else if(katrb==70.0f)
+    katrb=katrb-1.0f;
+
+if(katr<70.0f&&katr>0.0f)
+        gl.glRotatef(katr,0.0f,0.0f,1.0f);
+else if(katr==0.0f)
+    katr=katr+1.0f;
+else if(katr==70.0f)
+    katr=katr-1.0f;
 Prostopadloscian(gl,0.0f,0.0f,0.0f,3.0f,0.3f,0.3f);
 //ramie 2
 gl.glTranslatef(2.7f,0.0f,0.0f);
-gl.glRotatef(katr2,0.0f,0.0f,1.0f);
+if(katr2<0.0f&&katr2>-120.0f)
+        gl.glRotatef(katr2,0.0f,0.0f,1.0f);
+else if(katr2==-120.0f)
+    katr2=katr2+1.0f;
+else if(katr2==0.0f)
+    katr2=katr2-1.0f;
 Prostopadloscian(gl,0.0f,0.0f,0.0f,1.5f,0.3f,0.3f);
 //lyzka
 gl.glTranslatef(1.2f,0.1f,0.0f);
-gl.glRotatef(katl,0.0f,0.0f,1.0f);
+if(katl<0.0f&&katl>-120.0f)
+        gl.glRotatef(katl,0.0f,0.0f,1.0f);
+else if(katl==-120.0f)
+    katl=katl+1.0f;
+else if(katl==0.0f)
+    katl=katl-1.0f;
 Lyzka(gl);
  }
     
