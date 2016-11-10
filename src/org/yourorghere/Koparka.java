@@ -51,7 +51,7 @@ else if(katr==70.0f)
 Prostopadloscian(gl,0.0f,0.0f,0.0f,3.0f,0.3f,0.3f);
 //ramie 2
 gl.glTranslatef(2.7f,0.0f,0.0f);
-if(katr2<0.0f&&katr2>-120.0f)
+if(katr2<0.0f&&katr2>-100.0f)
         gl.glRotatef(katr2,0.0f,0.0f,1.0f);
 else if(katr2==-100.0f)
     katr2=katr2+2.0f;
@@ -62,7 +62,7 @@ Prostopadloscian(gl,0.0f,0.0f,0.0f,1.5f,0.3f,0.3f);
 gl.glTranslatef(1.2f,0.1f,0.0f);
 if(katl<0.0f&&katl>-100.0f)
         gl.glRotatef(katl,0.0f,0.0f,1.0f);
-else if(katl==-120.0f)
+else if(katl==-100.0f)
     katl=katl+2.0f;
 else if(katl==0.0f)
     katl=katl-2.0f;
