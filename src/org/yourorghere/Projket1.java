@@ -419,51 +419,48 @@ void drzewo(GL gl){
         //szescian
         //scian przednia
         gl.glBegin(GL.GL_QUADS);
-        gl.glColor3f(1.0f, 0.0f, 0.0f);
-        gl.glVertex3f(-1.0f,-1.0f,1.0f);
-        gl.glVertex3f(1.0f,-1.0f,1.0f);
-        gl.glVertex3f(1.0f,-1.0f,-1.0f);
-        gl.glVertex3f(-1.0f,-1.0f,-1.0f);
+        gl.glTexCoord2f(1.0f, 1.0f);gl.glVertex3f(-1.0f,-1.0f,1.0f);
+        gl.glTexCoord2f(0.0f, 1.0f);gl.glVertex3f(1.0f,-1.0f,1.0f);
+        gl.glTexCoord2f(0.0f, 0.0f);gl.glVertex3f(1.0f,1.0f,1.0f);
+        gl.glTexCoord2f(1.0f, 0.0f);gl.glVertex3f(-1.0f,1.0f,1.0f);
         gl.glEnd();
         //sciana prawa
+        gl.glBindTexture(GL.GL_TEXTURE_2D, t2.getTextureObject());
         gl.glBegin(GL.GL_QUADS);
-        gl.glColor3f(1.0f, 0.0f, 0.0f);
-        gl.glVertex3f(1.0f,-1.0f,1.0f);
-        gl.glVertex3f(1.0f,-1.0f,-1.0f);
-        gl.glVertex3f(1.0f,1.0f,-1.0f);
-        gl.glVertex3f(1.0f,1.0f,1.0f);
+        gl.glTexCoord2f(1.0f, 1.0f);gl.glVertex3f(1.0f,-1.0f,1.0f);
+        gl.glTexCoord2f(0.0f, 1.0f);gl.glVertex3f(1.0f,-1.0f,-1.0f);
+        gl.glTexCoord2f(0.0f, 0.0f);gl.glVertex3f(1.0f,1.0f,-1.0f);
+        gl.glTexCoord2f(1.0f, 0.0f);gl.glVertex3f(1.0f,1.0f,1.0f);
         gl.glEnd();
         //sciana tylnia
+        
         gl.glBegin(GL.GL_QUADS);
-        gl.glColor3f(1.0f, 0.0f, 0.0f);
-        gl.glVertex3f(1.0f,-1.0f,-1.0f);
-        gl.glVertex3f(-1.0f,-1.0f,-1.0f);
-        gl.glVertex3f(-1.0f,1.0f,-1.0f);
-        gl.glVertex3f(1.0f,1.0f,-1.0f);
+        gl.glTexCoord2f(1.0f, 1.0f);gl.glVertex3f(1.0f,-1.0f,-1.0f);
+        gl.glTexCoord2f(0.0f, 1.0f);gl.glVertex3f(-1.0f,-1.0f,-1.0f);
+        gl.glTexCoord2f(0.0f, 0.0f);gl.glVertex3f(-1.0f,1.0f,-1.0f);
+        gl.glTexCoord2f(1.0f, 0.0f);gl.glVertex3f(1.0f,1.0f,-1.0f);
         gl.glEnd();
         //sciana lewa
+        gl.glBindTexture(GL.GL_TEXTURE_2D, t1.getTextureObject());
         gl.glBegin(GL.GL_QUADS);
-        gl.glColor3f(1.0f, 0.0f, 0.0f);
-        gl.glVertex3f(-1.0f,-1.0f,-1.0f);
-        gl.glVertex3f(-1.0f,-1.0f,1.0f);
-        gl.glVertex3f(-1.0f,1.0f,1.0f);
-        gl.glVertex3f(-1.0f,1.0f,-1.0f);
+        gl.glTexCoord2f(1.0f, 1.0f);gl.glVertex3f(-1.0f,-1.0f,-1.0f);
+        gl.glTexCoord2f(0.0f, 1.0f);gl.glVertex3f(-1.0f,-1.0f,1.0f);
+        gl.glTexCoord2f(0.0f, 0.0f);gl.glVertex3f(-1.0f,1.0f,1.0f);
+        gl.glTexCoord2f(1.0f, 0.0f);gl.glVertex3f(-1.0f,1.0f,-1.0f);
         gl.glEnd();
         //gora
         gl.glBegin(GL.GL_QUADS);
-        gl.glColor3f(1.0f, 0.0f, 0.0f);
-        gl.glVertex3f(-1.0f,1.0f,1.0f);
-        gl.glVertex3f(1.0f,1.0f,1.0f);
-        gl.glVertex3f(1.0f,1.0f,-1.0f);
-        gl.glVertex3f(-1.0f,1.0f,-1.0f);
+        gl.glTexCoord2f(1.0f, 1.0f);gl.glVertex3f(-1.0f,1.0f,1.0f);
+        gl.glTexCoord2f(0.0f, 0.0f);gl.glVertex3f(1.0f,1.0f,1.0f);
+        gl.glTexCoord2f(0.0f, 0.0f);gl.glVertex3f(1.0f,1.0f,-1.0f);
+        gl.glTexCoord2f(1.0f, 0.0f);gl.glVertex3f(-1.0f,1.0f,-1.0f);
         gl.glEnd();
         //dol
         gl.glBegin(GL.GL_QUADS);
-        gl.glColor3f(1.0f, 0.0f, 0.0f);
-        gl.glVertex3f(-1.0f,-1.0f,-1.0f);
-        gl.glVertex3f(1.0f,-1.0f,-1.0f);
-        gl.glVertex3f(1.0f,-1.0f,1.0f);
-        gl.glVertex3f(-1.0f,-1.0f,1.0f);
+        gl.glTexCoord2f(1.0f, 1.0f);gl.glVertex3f(-1.0f,-1.0f,-1.0f);
+        gl.glTexCoord2f(0.0f, 1.0f);gl.glVertex3f(1.0f,-1.0f,-1.0f);
+        gl.glTexCoord2f(0.0f, 0.0f);gl.glVertex3f(1.0f,-1.0f,1.0f);
+        gl.glTexCoord2f(1.0f, 0.0f);gl.glVertex3f(-1.0f,-1.0f,1.0f);
         gl.glEnd();
 //        
         // Flush all drawing operations to the graphics card
