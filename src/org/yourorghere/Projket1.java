@@ -86,6 +86,22 @@ public class Projket1 implements GLEventListener {
                     lightPos = new float[]{lightPos[0]-0.2f,lightPos[1]-0.2f,lightPos[2]-0.2f,lightPos[3]};
                 if(e.getKeyChar()=='l')
                     lightPos = new float[]{lightPos[0]+0.2f,lightPos[1]+0.2f,lightPos[2]+0.2f,lightPos[3]};
+                if(e.getKeyChar()=='1')
+                    koparka.katrb+=1.0f;
+                if(e.getKeyChar()=='2')
+                    koparka.katrb-=1.0f;
+                if(e.getKeyChar()=='3')
+                    koparka.katr+=1.0f;
+                if(e.getKeyChar()=='4')
+                    koparka.katr-=1.0f;
+                if(e.getKeyChar()=='5')
+                    koparka.katr2+=1.0f;
+                if(e.getKeyChar()=='6')
+                    koparka.katr2-=1.0f;
+                if(e.getKeyChar()=='7')
+                    koparka.katl+=1.0f;
+                if(e.getKeyChar()=='8')
+                    koparka.katl-=1.0f;
             }
             public void keyReleased(KeyEvent e){}
             public void keyTyped(KeyEvent e){}
