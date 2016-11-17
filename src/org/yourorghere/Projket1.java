@@ -451,7 +451,7 @@ void drzewo(GL gl){
         //gora
         gl.glBegin(GL.GL_QUADS);
         gl.glTexCoord2f(1.0f, 1.0f);gl.glVertex3f(-1.0f,1.0f,1.0f);
-        gl.glTexCoord2f(0.0f, 0.0f);gl.glVertex3f(1.0f,1.0f,1.0f);
+        gl.glTexCoord2f(0.0f, 1.0f);gl.glVertex3f(1.0f,1.0f,1.0f);
         gl.glTexCoord2f(0.0f, 0.0f);gl.glVertex3f(1.0f,1.0f,-1.0f);
         gl.glTexCoord2f(1.0f, 0.0f);gl.glVertex3f(-1.0f,1.0f,-1.0f);
         gl.glEnd();
